@@ -130,7 +130,7 @@ if ($_SESSION['user'] == "Svečias") {
             <a class="btn btn-info" href='/irankiuNuoma/useredit.php' role="button">Redaguoti paskyrą</a>
             <a class="btn btn-info" onclick="if(window.confirm('Ar tikrai istrinti?') == true){
                             href='/irankiuNuoma/deleteUser.php'
-                            }" role="button">Ištrinti paskyrą</a>
+                            }else{ href='/irankiuNuoma/index.php'}" role="button">Ištrinti paskyrą</a>
           </div>
         <?php
         } else {
