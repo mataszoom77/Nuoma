@@ -50,6 +50,9 @@ if ($_SESSION['user'] != "Svečias") {
             <li class="nav-item">
                <a class="nav-link" href="profile.php">Mano paskyra</a>
             </li>
+            <li class="nav-item">
+               <a class="nav-link" href="krepselis.php">Krepselis</a>
+            </li>
             <!-- <li class="nav-item">
                <a class="nav-link"  href="useredit.php">Redaguoti paskyrą</a>
             </li> -->

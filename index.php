@@ -100,6 +100,10 @@ if(isset($_SESSION['ulevel'])){
                                                      if( !$isSvecias){
                                                         ?>  
                                                         <a style="color: white;" href="/irankiuNuoma/order.php?key=<?php echo $row['id']; ?> "class="card-link">Užsakyti</a>
+                                                       
+                                                        <a style="color: white;" href="/irankiuNuoma/iKrepseli.php?key=<?php echo $row['id']; ?> "class="card-link">I krepseli</a>
+                                                    
+                                                        
                                                     <?php
                                                      }
                                                     ?>  
