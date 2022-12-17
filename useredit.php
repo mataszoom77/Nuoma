@@ -62,16 +62,16 @@ $_SESSION['prev'] = "useredit";
         <center style="font-size:18pt;"><b>Paskyros redagavimas</b></center><br>
 		<center style="font-size:14pt;"><b>Vartotojas: <?php echo $_SESSION['user'];  ?></b></center>
         
-        
-        <p  style="text-align:left;">Dabartinis slaptažodis:<br>
-            <input class ="s1" name="pass" type="password" value="<?php echo $_SESSION['pass_login']; ?>"><br>
-            <?php echo $_SESSION['pass_error']; ?>
-        </p>
-			
-		<p style="text-align:left;">Naujas slaptažodis:<br>
-            <input class ="s1" name="passn" type="password" value="<?php echo $_SESSION['passn_login']; ?>"><br>
-            <?php echo $_SESSION['passn_error']; ?>
-        </p>	
+        <?php 
+
+            if(isset($_GET['status'])){
+                if( $_GET['status'] == 'success'){
+                    echo "<h2 style='color: green;'>Paskyra atnaujinta</h2>";
+                }elseif( $_GET['status'] == 'failed'){
+                    echo "<h2 style='color: green;'>Paskyros atnaujinti nepavyko</h2>";
+                }
+            }
+        ?>
 			
 		<p style="text-align:left;">E-paštas:<br>
 			<input class ="s1" name="email" type="text" value="<?php echo $_SESSION['mail_login']; ?>"><br>
