@@ -17,16 +17,28 @@ session_start();
   $_SESSION['mail_error']="";
   $_SESSION['passn_error']="";
   $user=$_SESSION['user'];
-  $pass=$_POST['pass'];$_SESSION['pass_login']=$pass;    //senas
-  $passn=$_POST['passn'];$_SESSION['passn_login']=$passn;   //naujas
   $mail=$_POST['email']; $_SESSION['mail_login']=$mail; 
   $vardas=$_POST['vardas'];
   $pavarde=$_POST['pavarde'];
-  $lytis=$_POST['lytis'];
   $tel=$_POST['tel'];
   $adresas=$_POST['adresas'];
   $kodas=$_POST['kodas'];
-  $miestas=$_POST['miestas'];
+
+
+  $db=mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+  $sql = "UPDATE ". TBL_USERS." SET  email='$mail', vardas='$vardas', pavarde='$pavarde', telefonas='$tel', adresas='$adresas', asmens_kodas='$kodas'  WHERE  username='$user'";
+  if (!mysqli_query($db, $sql)) {
+    echo " DB klaida keiciant slaptazodi ir epasto adresa: " . $sql . "<br>" . mysqli_error($db);
+    mysqli_close($db);
+    
+    exit;}
+
+  header("Location:useredit.php?status=success");exit;
+
+
+
+
+  exit;
   list(,$dbpass)=checkdb($user); //paimam slaptazodzio maisa is DB
 	   if (!$dbpass)
 	   { echo " DB klaida nuskaitant slaptazodi vartotojui ".$user;
@@ -42,12 +54,13 @@ session_start();
                  $sql = "UPDATE ". TBL_USERS." SET password='$dbpass' ,  email='$mail', vardas='$vardas', pavarde='$pavarde', lytis='$lytis', telefonas='$tel', adresas='$adresas', asmens_kodas='$kodas', miestas='$miestas'   WHERE  username='$user'";
 				         if (!mysqli_query($db, $sql)) {
                    echo " DB klaida keiciant slaptazodi ir epasto adresa: " . $sql . "<br>" . mysqli_error($db);
+                   mysqli_close($db);
 		               exit;}
 		            $_SESSION['message']="Paskyra pakeista";
 				} else {$_SESSION['message']="Nieko nekeitėt, paskyra nepakeista";}
                 $_SESSION['user']="";
             //    session_regenerate_id(true);
-      header("Location:index.php");exit;
+      header("Location:index.php?status=success");exit;
 	  }  // yra kazkokiu klaidu, jos liecia ne galiojanti, o nauja slaptazodi, perrasom
            {$_SESSION['passn_error']=$_SESSION['pass_error'];$_SESSION['pass_error']="";} 
 	// jei neteisingas galiojantis, nieko daugiau netikrinom 
@@ -55,4 +68,4 @@ session_start();
    // taisyti
    $_SESSION['message']="Yra klaidų";
   // session_regenerate_id(true);
-   header("Location:useredit.php");exit;
+   header("Location:useredit.php?status=failed");exit;
