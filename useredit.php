@@ -38,40 +38,33 @@ $_SESSION['prev'] = "useredit";
  <html>
         <head>  
             <meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8"> 
-            <title>Registracija</title>
+            <title>Paskyros redagavimas</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-            <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
             <link href="include/styles.css" rel="stylesheet" type="text/css" >
         </head>
         <body>  
+        <?php
+            include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
+        ?>
       <table class="center" style="text-align:center;">
-        <tr>
-            <td>
-                <center><img src="include/top2.png" width="1047" height="200"></center>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <?php
-                    include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
-                ?>
-        <tr><td>
-            <div class="container">
+       
+        <div class="container">
 		<form action="procuseredit.php" method="POST" class="login">             
         <center style="font-size:18pt;"><b>Paskyros redagavimas</b></center><br>
 		<center style="font-size:14pt;"><b>Vartotojas: <?php echo $_SESSION['user'];  ?></b></center>
+        <?php 
+
+            if(isset($_GET['status'])){
+                if( $_GET['status'] == 'success'){
+                    echo "<h2 style='color: green;'>Paskyra atnaujinta</h2>";
+                }elseif( $_GET['status'] == 'failed'){
+                    echo "<h2 style='color: green;'>Paskyros atnaujinti nepavyko</h2>";
+                }
+            }
+        ?>
         
-        
-        <p  style="text-align:left;">Dabartinis slaptažodis:<br>
-            <input class ="s1" name="pass" type="password" value="<?php echo $_SESSION['pass_login']; ?>"><br>
-            <?php echo $_SESSION['pass_error']; ?>
-        </p>
-			
-		<p style="text-align:left;">Naujas slaptažodis:<br>
-            <input class ="s1" name="passn" type="password" value="<?php echo $_SESSION['passn_login']; ?>"><br>
-            <?php echo $_SESSION['passn_error']; ?>
-        </p>	
+       	
 			
 		<p style="text-align:left;">E-paštas:<br>
 			<input class ="s1" name="email" type="text" value="<?php echo $_SESSION['mail_login']; ?>"><br>

@@ -5,73 +5,41 @@
 // sužymėjus pakeitimus į procadmin.php, bus dar perklausta
 
 session_start();
-include("include/nustatymai.php");
 include("include/functions.php");
-// cia sesijos kontrole
-if (!isset($_SESSION['prev']) || ($_SESSION['ulevel'] != $user_roles[ADMIN_LEVEL])) {
-	header("Location: logout.php");
-	exit;
-}
 $_SESSION['prev'] = "admin";
 date_default_timezone_set("Europe/Vilnius");
 ?>
-
 <html>
-
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8">
-	<title>Administratoriaus sąsaja</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8">
+    <title>Gyvenk aktyviai</title>
+    <link href="include/styles.css" rel="stylesheet" type="text/css">
+    <!-- Latest compiled and minified JavaScript -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-	<link href="include/styles.css" rel="stylesheet" type="text/css">
-</head>
+  </head>
 
 <body>
+<header>
+    <div>
+        <?php
+        if (!empty($_SESSION['user']))     //Jei vartotojas prisijungęs, valom logino kintamuosius ir rodom meniu
+        {                                  // Sesijoje nustatyti kintamieji su reiksmemis is DB
+            inisession("part");   //   pavalom prisijungimo etapo kintamuosius
+            include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
+        }
+		
+		// cia sesijos kontrole
+		if (!isset($_SESSION['prev']) || ($_SESSION['ulevel'] != $user_roles[ADMIN_LEVEL])) {
+			header("Location: logout.php");
+			exit;
+		}
+        ?>
+    </div>
+</header>
 	<table class="center">
-		<tr>
-			<td>
-				<center><img src="include/top2.png" width="1047" height="200"></center>
-			</td>
-		</tr>
-		<tr>
-			<td>
-		<?php
-		echo "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">";
-
-		echo "<div class=\"collapse navbar-collapse\" id=\"navbarText\">";
-		echo  "<ul class=\"navbar-nav mr-auto\">";
-		echo "<a class=\"nav-link\" href=\"index.php\">Pagrindinis</a>";
-		echo "<a class=\"nav-link\" href=\"reviews.php\">Atsiliepimai</a>";
-
-		?>
-		<html>
-
-		<li class="nav-item">
-               <a class="nav-link"href="orderHistory.php">Užsakymų istorija</a>
-            </li>
-		<li class="nav-item">
-			<a class="nav-link" href="profile.php">Mano paskyra</a>
-		</li>
-		<!-- <li class="nav-item">
-			<a class="nav-link" href="useredit.php">Redaguoti paskyrą</a>
-		</li> -->
-
-		</html>
-		<?php
-
-		echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrankį</a>";
-		echo "<a class=\"nav-link\" href=\"admin.php\">Administratoriaus sąsaja</a>";
-
-		echo "<a class=\"nav-link\" href=\"logout.php\">Atsijungti</a>";
-		echo "</ul>";
-		echo "</div>";
-		echo "</nav>";
-
-		?>
-			
-	<center><b><?php echo $_SESSION['message']; ?></b></center>
-
-
+		
 	<form name="vartotojai" action="procadmin.php" method="post">
 		<div class="container align-content-center">
 		<table class="center" style=" width:100%; border:none;align-items:center;">
@@ -87,10 +55,10 @@ date_default_timezone_set("Europe/Vilnius");
 
 		<?php
 
-		$db = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-		$sql = "SELECT username,userlevel,email,timestamp "
+		$db_connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+		$sql_retrn_user = "SELECT username,userlevel,email,timestamp "
 			. "FROM " . TBL_USERS . " ORDER BY userlevel DESC,username";
-		$result = mysqli_query($db, $sql);
+		$result = mysqli_query($db_connection, $sql_retrn_user);
 		if (!$result || (mysqli_num_rows($result) < 1)) {
 			echo "Klaida skaitant lentelę users";
 			exit;
