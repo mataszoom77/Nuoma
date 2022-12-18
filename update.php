@@ -4,14 +4,11 @@ $server = "localhost";
 $user = "root";
 $password = "";
 $dbname = "irankiunuoma";
-$lentele = "irankis";
+$lentele = "iranga";
 
 $pavadinimas = htmlspecialchars($_POST["pavadinimas"]);
-$bukle = htmlspecialchars($_POST["bukle"]);
-$kaina = htmlspecialchars($_POST["kaina"]);
-$tipas = htmlspecialchars($_POST["tipas"]);
-$klase = htmlspecialchars($_POST["klase"]);
-$prieinamumas = htmlspecialchars($_POST["prieinamumas"]);
+$spalva = htmlspecialchars($_POST["spalva"]);
+$svoris = htmlspecialchars($_POST["svoris"]);
 $id = $_POST["id"];
 include("include/functions.php");
 
@@ -19,9 +16,9 @@ $conn = new mysqli($server, $user, $password, $dbname);
 if ($conn->connect_error) die("Negaliu prisijungti: " . $conn->connect_error);
 mysqli_set_charset($conn, "utf8"); // dėl lietuviškų raidžių
 
-$sql =  "UPDATE $lentele SET pavadinimas = '$pavadinimas', bukle = '$bukle', kaina = '$kaina', tipas = '$tipas', klase = '$klase', prieinamumas = '$prieinamumas' WHERE id=$id";
+$sql =  "UPDATE $lentele SET pavadinimas = '$pavadinimas', spalva = '$spalva', svoris = '$svoris' WHERE id=$id";
 
 $conn->query($sql);
-header('Location: /irankiuNuoma');
+header('Location: /index.php');
 
 ?>

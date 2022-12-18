@@ -28,10 +28,8 @@ $premission = false;
 $isSvecias = true;
 
 if(isset($_SESSION['ulevel'])){
-    print_r($_SESSION['ulevel']);
     if(($_SESSION['ulevel'] == 9)){
         $premission = true;
-        print_r($_SESSION['ulevel']);
     }
     if(($_SESSION['ulevel'] == 4)){
         $isSvecias = false;
@@ -100,7 +98,7 @@ if(isset($_SESSION['ulevel'])){
                                                      if( !$isSvecias){
                                                         ?>  
                                                         <a style="color: white;" href="/irankiuNuoma/order.php?key=<?php echo $row['id']; ?> "class="card-link">Užsakyti</a>
-                                                       
+                                                       <a style="color: white;" href="perziureti.php?key=<?php echo $row['id']; ?> "class="card-link">Peržiūrėti</a>
                                                         <a style="color: white;" href="/irankiuNuoma/iKrepseli.php?key=<?php echo $row['id']; ?> "class="card-link">I krepseli</a>
                                                     
                                                         
