@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (($_SESSION['ulevel'] != 9)) {
-    header("Location: logout.php");
-    exit;
-}
+
 $server = "localhost";
 $user = "root";
 $password = "";
@@ -24,6 +21,35 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
 $row = $result->fetch_assoc()
 ?>
 <html>
+
+<style>
+
+#entity-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#entity-container h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+#entity-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#entity-container th,
+#entity-container td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+}
+
+#entity-container th {
+  background-color: #ddd;
+}
+</style>
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8">
@@ -55,34 +81,28 @@ $row = $result->fetch_assoc()
 
                     include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
                 ?>
-                    <div class="container" style="padding: 5%;">
-                        <h1 style="color: #343a40">Redaguoti įrangą</h1>
-                        <form action=update.php method=post>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label for="inputEmail4">Pavadinimas</label>
-                                    <input type="text" name="pavadinimas" class="form-control" id="inputEmail4" value="<?php echo $row['pavadinimas'] ?> " required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Spalva</label>
-                                    <input type="text" name="spalva" value="<?php echo $row['spalva'] ?>" class="form-control" id="inputPassword4" required>
-                                </div>
+                    <div id="entity-container">
+  <h2>Įrangos peržiūra</h2>
+  <table>
+    <tr>
+      <th>Atributas</th>
+      <th>Reikšmė</th>
+    </tr>
+    <tr>
+      <td>Pavadinimas</td>
+      <td><?php echo $row['pavadinimas']; ?></td>
+    </tr>
+    <tr>
+      <td>Spalva</td>
+      <td><?php echo $row['spalva']; ?></td>
+    </tr>
+    <tr>
+      <td>Svoris</td>
+      <td><?php echo $row['svoris']; ?></td>
+    </tr>
+  </table>
+</div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="inputAddress">Svoris</label>
-                                    <input type="text" name="kaina" value="<?php echo $row['svoris'] ?>" class="form-control" id="inputAddress" required>
-                                </div>
-                            </div>
-                            
-                            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                            <button type="submit" name="update" value="Submit" class="btn btn-primary">Patvirtinti</button>
-                        </form>
-                        <!-- <?php
-                                //echo "<br><br><a href=\"index.php\"><b>Grįžti į meniu<b></a>";
-                                ?> -->
-                    </div>
 
                 <?php
                 } else {
