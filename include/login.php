@@ -33,26 +33,12 @@ include("include/nustatymai.php");
   <!-- 2 column grid layout for inline styling -->
   <!-- Submit button -->
   <button type="submit" name="login" value="Prisijungti" class="btn btn-primary btn-block mb-4">Prisijungti</button>
-  <div class="row mb-4">
-    <div class="col d-flex justify-content-center">
-      <!-- Checkbox -->
 
-        <?php
-             echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"guest.php\">Svečias</a>";
-             
-        ?>
-    </div>
-
-    <div class="col">
-
-      <!-- <input type="submit" name="problem" class="btn btn-primary btn-block mb-4" value="Pamiršote slaptažodį?"/>    -->
-    </div>
-  </div>
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Neregistruotas? 
+    <p>Neturi paskyros? 
         <?php
-        if ($uregister != "admin") { echo "<a href=\"register.php\">Registracija</a>";}
+        if ($uregister != "admin") { echo "<a href=\"register.php\">Užsiregistruoti</a>";}
         ?>
   </div>
 <!-- </form>

@@ -27,9 +27,11 @@ if ($_SESSION['user'] != "Svečias") {
             <li class="nav-item">
                <a class="nav-link"H href="profile.php">Mano paskyra</a>
             </li>
+            <?php if ($_SESSION['ulevel'] != 9) {?>
             <li class="nav-item">
-               <a class="nav-link" href="krepselis.php">Krepselis</a>
+               <a class="nav-link" href="krepselis.php">Krepšelis</a>
             </li>
+            <?php }?>
             <li class="nav-item">
                <a class="nav-link" href="Parduotuves.php">Parduotuvės</a>
             </li>
