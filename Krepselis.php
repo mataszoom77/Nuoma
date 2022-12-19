@@ -10,8 +10,10 @@ $password = "";
 $dbname = "irankiunuoma";
 $lentele = "iranga";
 $lentele2 = "krepselis";
+$lentele3 = "atsiemimo_punktas";
 
 $tomp=$_SESSION['userid'];
+$value = $_GET['key'];
 
 include("include/functions.php");
 
@@ -60,30 +62,30 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                     include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
                 ?>
                 <table style ='margin: 0px auto;' id = 'krepselisTable'>
+                <h1 style="color: #343a40">Užsisakyti įrankį</h1>
                 <tr>
                     <th>Pavadinimas</th>
                     <th>Kaina</th>
 	                <th>Kiekis</th>
-                    <th></th></tr><tr>
+                    <th></th></tr>
                     <?php
                     $bendrakaina = 0;
                     while ($row = $result->fetch_assoc()) {
                         $bendrakaina = $bendrakaina + $row['kaina'] * $row['kiekis'];
-                        echo "<form method='post'>
+                        echo "<form action=createOrder.php method=post>
                         <input type = hidden id = id name = id value =" . $row['id'] . " readonly >
                         <tr>
                         <td>" . $row['pavadinimas'] . "</td>
                         <td>" . $row['kaina']. "</td>
                         <td><input type='number' id=kiekis name=kiekis value =".$row['kiekis']." min = 1  </td>
                         <td><input type='submit' name='ok' style ='border-color: #04AA6D' action = isKrepselio.php' value='Isimti is krepselio' class='btn'></td>
-                        </tr></form>"
+                        </tr>"
                         ;}
-                        echo "<form method ='post' action ='order.php'>
+                        echo "
                         <tr></tr><tr>
                         <th>Krepšelio suma:</th>
                         <th>". $bendrakaina. "</th>
-                        <th></th>
-                        <th><input type='submit' style ='border-color: #04AA6D' name='uzsakytiSHORTCUT' value='Uzsakyti prekes' class='btn'></th><th></th></tr></form>";    
+                        <th></th></tr>";    
                         if ($_POST != null) {
                             $id = $_POST['id'];
                             $pridetasKiekis = $_POST['kiekis'];
@@ -94,9 +96,46 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                             $conn->query($sql2);
                             echo "<meta http-equiv='refresh' content='0'>";
                         }
-                
-                ?>
+                    ?>
+                    <?php
+                        $sql =  "SELECT * FROM $lentele3";
+
+                        if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
+                    ?>
                 </table> 
+                    <div class="container" style="padding: 5%;">
+                        
+
+                                    <input type="hidden" id="postId" name="zmogus" value="<?php echo $tomp ?>" />
+                                    <input type="hidden" id="postId" name="irankis" value="<?php echo $value ?>" />
+                                    <label class="form-label" for="form2Example1">Atsiemimo punktas:</label>
+									<select class="form-select" name="adresas" aria-label="Default select example" required>
+									<!-- <option selected>Paspauskite, kad pasirinktumėt miestą</option> -->
+									<?php
+									while ($row = $result->fetch_assoc()) {
+									?>
+									<option value=<?php echo  $row['id'] ?>><?php echo  $row['adresas'] ?></option>
+									<?php
+									}
+									?>
+									</select>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="inputPassword4">Atsiemimo laikas:</label>
+                                    <input type="datetime-local" name="data_a" class="form-control" id="inputPassword4" required>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="inputAddress">Gražinimo laikas:</label>
+                                    <input type="datetime-local" name="data_b" class="form-control" id="inputAddress" required>
+                                </div>
+                            </div>
+                            <button type="submit" name="update" value="Submit" class="btn btn-primary">Patvirtinti</button>
+                        </form>
+                        <!-- <?php
+                                //echo "<br><br><a href=\"index.php\"><b>Grįžti į meniu<b></a>";
+                                ?> -->
+                    </div>
 
                 <?php
                 } else {
