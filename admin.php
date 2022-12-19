@@ -36,26 +36,6 @@ date_default_timezone_set("Europe/Vilnius");
 		echo "<div class=\"collapse navbar-collapse\" id=\"navbarText\">";
 		echo  "<ul class=\"navbar-nav mr-auto\">";
 		echo "<a class=\"nav-link\" href=\"index.php\">Pagrindinis</a>";
-		echo "<a class=\"nav-link\" href=\"reviews.php\">Atsiliepimai</a>";
-
-		?>
-		<html>
-
-		<li class="nav-item">
-               <a class="nav-link"href="orderHistory.php">Užsakymų istorija</a>
-            </li>
-		<li class="nav-item">
-			<a class="nav-link" href="profile.php">Mano paskyra</a>
-		</li>
-		<!-- <li class="nav-item">
-			<a class="nav-link" href="useredit.php">Redaguoti paskyrą</a>
-		</li> -->
-
-		</html>
-		<?php
-
-		echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrankį</a>";
-		echo "<a class=\"nav-link\" href=\"admin.php\">Administratoriaus sąsaja</a>";
 
 		echo "<a class=\"nav-link\" href=\"logout.php\">Atsijungti</a>";
 		echo "</ul>";

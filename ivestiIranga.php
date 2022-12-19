@@ -61,11 +61,7 @@ function confirmationDelete(anchor)
 </head>
 <body>
 <table class="center">
-        <tr>
-            <td>
-                <center><img src="include/top2.png" width="1047" height="200"></center>
-            </td>
-        </tr>
+       
         <tr>
             <td>
                 <?php

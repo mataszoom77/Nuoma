@@ -1,3 +1,10 @@
+.login-bg{
+  /* background-color: #143914; */
+  background-image:url(https://images.unsplash.com/photo-1456428199391-a3b1cb5e93ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 table.meniu {
     text-align: left;
     background-color:#143914;
@@ -12,7 +19,7 @@ table.center {
     border-style: solid;
     border-color: grey;
     padding: 1px;
-    /* background-color: white;          */ 
+    background-color: white;          
 }
 table.backlink {  
     margin-left:auto; 

@@ -62,32 +62,7 @@ function confirmationDelete(anchor)
 </script>
 	
 </head>
-
-<body>
-    <?php 
-    if(isset($_SESSION['ulevel'])){
-        if(($_SESSION['ulevel'] == 9) || ($_SESSION['ulevel'] == 4)){
-            ?>
-            <div class="relative__container mb-5">  
-                <div class="full__width object__fit">
-                    <img src="include/images/fornt-page-cover.jpg" alt="background picture">
-                    <div class="absolute">
-                    <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
-                    <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
-                    <!-- <a href="#iranga" class="button">IRANGA!</a> -->
-                    </div>
-                </div>
-            </div>
-            <?php
-        }
-    }
-    
-    ?>
-    
-    <table class="center">
-        <tr>
-            <td>
-                <?php
+<?php
 
                 if (!empty($_SESSION['user']))     //Jei vartotojas prisijungęs, valom logino kintamuosius ir rodom meniu
                 {                                  // Sesijoje nustatyti kintamieji su reiksmemis is DB
@@ -98,6 +73,31 @@ function confirmationDelete(anchor)
 
                     include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
                 ?>
+                
+                    <body>
+                        <?php 
+                        if(isset($_SESSION['ulevel'])){
+                            if(($_SESSION['ulevel'] == 9) || ($_SESSION['ulevel'] == 4)){
+                                ?>
+                                <div class="relative__container mb-5">  
+                                    <div class="full__width object__fit">
+                                        <img src="include/images/fornt-page-cover.jpg" alt="background picture">
+                                        <div class="absolute">
+                                        <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
+                                        <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
+                                        <!-- <a href="#iranga" class="button">IRANGA!</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                        
+                        ?>
+                        
+                        <table class="center">
+                            <tr>
+                                <td>
 <!-------------------------------------------------------------------------------------------------------------------------------- --> 
                     <div style="text-align: center;color:green">
                         <br><br>
@@ -153,6 +153,9 @@ function confirmationDelete(anchor)
                             </div>
                         </div>
                         <br>
+                        </body>
+
+                        </html>
                     <?php
                 } else {
 
@@ -160,16 +163,24 @@ function confirmationDelete(anchor)
                     else {
                         if ($_SESSION['prev'] != "proclogin") inisession("part"); // nustatom pradines reiksmes formoms
                     }
-                    // jei ankstesnis puslapis perdavė $_SESSION['message']
-                    echo "<div align=\"center\">";
-                    echo "<font size=\"4\" color=\"#ff0000\">" . $_SESSION['message'] . "<br></font>";
-                   
-                    echo "<table class=\"center\"><tr><td>";
-                   
-                    include("include/login.php");                    // prisijungimo forma
-                    echo "</td></tr></table></div><br>";
-                }
-                    ?>
-</body>
+                    ?> 
+                    
+                    <body class="login-bg">
 
-</html>
+                        <?php
+                        // jei ankstesnis puslapis perdavė $_SESSION['message']
+                        echo "<div align=\"center\">";
+                        echo "<font size=\"4\" color=\"#ff0000\">" . $_SESSION['message'] . "<br></font>";
+                    
+                        echo "<table class=\"center\"><tr><td>";
+                    
+                        include("include/login.php");                    // prisijungimo forma
+                        echo "</td></tr></table></div><br>";
+                        ?>
+
+                    </body>
+
+                    </html>
+                <?php
+                }
+                ?>
