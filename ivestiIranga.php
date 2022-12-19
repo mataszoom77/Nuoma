@@ -64,6 +64,11 @@ function confirmationDelete(anchor)
 <table class="center">
         <tr>
             <td>
+                <center><img src="include/top2.png" width="1047" height="200"></center>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <?php
 
                 if (!empty($_SESSION['user']))     //Jei vartotojas prisijungęs, valom logino kintamuosius ir rodom meniu
@@ -77,7 +82,7 @@ function confirmationDelete(anchor)
                 ?>
     <div class="container" style="padding: 5%;">
     <h1 style="color: #343a40">Pridėti įrangą</h1>
-<form method='post' action='irasytiIranki.php'>
+<form method='post' action='irasytiIranga.php'>
   <div class="form-row" >
     <div class="form-group col-md-12">
       <label for="inputEmail4">Įrankio pavadinimas</label>

@@ -102,73 +102,157 @@ $row = $result->fetch_assoc()
     </tr>
 	
 	
-	<tr>
+	<?php 
+	  if($row['spalva']){
+		  ?>
+		  <tr>
       <td>Spalva</td>
       <td><?php echo $row['spalva']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['svoris'] > 0 && $row['svoris']){
+		  ?>
+		  <tr>
       <td>Svoris</td>
       <td><?php echo $row['svoris']; ?></td>
     </tr>
-	<tr>
-      <td>Dydis</td>
-      <td><?php 
+	<?php
+	  }
+	  ?>
+	<?php 
 	  if($row['dydis'] > 0 && $row['dydis']){
-		  echo $row['dydis'];
-	  }
-	  else{
-		  echo "-";
-	  }
-	  //echo $row['dydis']; ?></td>
+		  ?>
+		  <tr>
+      <td>Dydis</td>
+      <td><?php echo $row['dydis']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['ilgis'] > 0 && $row['ilgis']){
+		  ?>
+		  <tr>
       <td>Ilgis</td>
       <td><?php echo $row['ilgis']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	
+	<?php 
+	  if($row['nusidevejimas']){
+		  ?>
+		  <tr>
       <td>Nusidevėjimas</td>
       <td><?php echo $row['nusidevejimas']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['prekes_zenklas']){
+		  ?>
+		  <tr>
       <td>Prekės ženklas</td>
       <td><?php echo $row['prekes_zenklas']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['pagaminimo_salis']){
+		  ?>
+		  <tr>
       <td>Pagaminimo šalis</td>
       <td><?php echo $row['pagaminimo_salis']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['reguliuojamas_dydis'] > 0 && $row['reguliuojamas_dydis']){
+		  ?>
+		  <tr>
       <td>Reguliuojamas dydis</td>
       <td><?php echo $row['reguliuojamas_dydis']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['maksimalus_greitis'] > 0 && $row['maksimalus_greitis']){
+		  ?>
+		  <tr>
       <td>Maksimalus greitis</td>
       <td><?php echo $row['maksimalus_greitis']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['maksimalus_nuvaziuojamas_atstumas'] > 0 && $row['maksimalus_nuvaziuojamas_atstumas']){
+		  ?>
+		  <tr>
       <td>Maksimalus nuvažiuojamas atstumas</td>
       <td><?php echo $row['maksimalus_nuvaziuojamas_atstumas']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['akumuliatoriaus_talpa'] > 0 && $row['akumuliatoriaus_talpa']){
+		  ?>
+		  <tr>
       <td>Akumuliatoriaus talpa</td>
       <td><?php echo $row['akumuliatoriaus_talpa']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['ikrovimo_laikas']){
+		  ?>
+		  <tr>
       <td>Įkrovimo laikas</td>
       <td><?php echo $row['ikrovimo_laikas']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['stiprumas_pagrindine_asimi'] > 0 && $row['stiprumas_pagrindine_asimi']){
+		  ?>
+		  <tr>
       <td>Stiprumas pagrindine ašimi</td>
       <td><?php echo $row['stiprumas_pagrindine_asimi']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['stiprumas_pagalbine_asimi'] > 0 && $row['stiprumas_pagalbine_asimi']){
+		  ?>
+		  <tr>
       <td>Stiprumas pagalbine ašimi</td>
       <td><?php echo $row['stiprumas_pagalbine_asimi']; ?></td>
     </tr>
-	<tr>
+	<?php
+	  }
+	  ?>
+	<?php 
+	  if($row['stiprumas_atidarytais_vartais'] > 0 && $row['stiprumas_atidarytais_vartais']){
+		  ?>
+		  <tr>
       <td>Stiprumas atidarytais vartais</td>
       <td><?php echo $row['stiprumas_atidarytais_vartais']; ?></td>
     </tr>
+	<?php
+	  }
+	  ?>
 	
 	
   </table>

@@ -30,12 +30,18 @@ if ($_SESSION['user'] != "Svečias") {
             <li class="nav-item">
                <a class="nav-link" href="krepselis.php">Krepselis</a>
             </li>
+            <li class="nav-item">
+               <a class="nav-link" href="Parduotuves.php">Parduotuvės</a>
+            </li>
+            <!-- <li class="nav-item">
+               <a class="nav-link"  href="useredit.php">Redaguoti paskyrą</a>
+            </li> -->
             
    </html>
 <?php
 }
 if ($userlevel == $user_roles[ADMIN_LEVEL]) {
-   echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrangą</a>";
+   echo "<a class=\"nav-link\" href=\"ivestiIranga.php\">Pridėti įrangą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiKategorija.php\">Pridėti kategoriją</a>";
    echo "<a class=\"nav-link\" href=\"ivestiAPrieda.php\">Pridėti apsaugos priedą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiPPrieda.php\">Pridėti priežiūros priedą</a>";

@@ -81,11 +81,11 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                     while ($row = $result->fetch_assoc()) {
                         $bendrakaina = $bendrakaina + $row['kaina'] * $row['kiekis'];
                         echo "<form action=createOrder.php method=post>
-                        <input type = hidden id = id name = id value =" . $row['id'] . " readonly >
+                        <input type = 'hidden' id = 'id' name = 'id' value =" . $row['id'] . " readonly >
                         <tr>
                         <td>" . $row['pavadinimas'] . "</td>
                         <td>" . $row['kaina']. "</td>
-                        <td><input type='number' id=kiekis name=kiekis value =".$row['kiekis']." min = 1  </td>
+                        <td><input type='number' id='kiekis' name='kiekis' value =".$row['kiekis']." min = 1  </td>
                         <td><input type='submit' name='ok' style ='border-color: #04AA6D' action = isKrepselio.php' value='Isimti is krepselio' class='btn'></td>
                         </tr>"
                         ;}

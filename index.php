@@ -131,6 +131,7 @@ function confirmationDelete(anchor)
                                                         if($premission){
                                                     ?>  
                                                         <a style="color: white;" href="/irankiuNuoma/redaguoti.php?key=<?php echo $row['id']; ?> "class="card-link">Redaguoti</a>
+														<a style="color: white;" href="perziureti.php?key=<?php echo $row['id']; ?> "class="card-link">Peržiūrėti</a>
                                                         <a style="color: white;" onclick='javascript:confirmationDelete($(this));return false;' href="/irankiuNuoma/delete.php?key=<?php echo $row['id']; ?> "class="card-link">Ištrinti</a>
                                                     <?php
                                                      }
