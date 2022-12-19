@@ -64,11 +64,6 @@ function confirmationDelete(anchor)
 <table class="center">
         <tr>
             <td>
-                <center><img src="include/top2.png" width="1047" height="200"></center>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <?php
 
                 if (!empty($_SESSION['user']))     //Jei vartotojas prisijungęs, valom logino kintamuosius ir rodom meniu

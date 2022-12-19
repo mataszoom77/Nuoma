@@ -23,7 +23,7 @@ mysqli_set_charset($conn, "utf8"); // dėl lietuviškų raidžių
 $sql = "INSERT INTO $lentele (pradzia, pabaiga, zmogus_fk, punktas_fk, irankis_fk) 
              VALUES ( '$data_a', '$data_b', '$zmogus',  '$adresas', '$irankis')";
 
-$sql2 =  "UPDATE $lentele2 SET prieinamumas=0 WHERE id=$irankis";
+$sql2 =  "UPDATE $lentele2 SET prieinamumas=0 WHERE id='$irankis'";
 
 if ($conn->query($sql) === TRUE) {} else {
     echo "Error updating record: " . $conn->error;

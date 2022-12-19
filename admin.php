@@ -30,11 +30,6 @@ date_default_timezone_set("Europe/Vilnius");
 	<table class="center">
 		<tr>
 			<td>
-				<center><img src="include/top2.png" width="1047" height="200"></center>
-			</td>
-		</tr>
-		<tr>
-			<td>
 		<?php
 		echo "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">";
 

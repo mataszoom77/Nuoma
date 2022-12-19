@@ -42,8 +42,10 @@ if(isset($_SESSION['ulevel'])){
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8">
     <title>Gyvenk aktyviai</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="include/styles.css" rel="stylesheet" type="text/css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 	<script type="text/javascript">
@@ -62,12 +64,27 @@ function confirmationDelete(anchor)
 </head>
 
 <body>
+    <?php 
+    if(isset($_SESSION['ulevel'])){
+        if(($_SESSION['ulevel'] == 9) || ($_SESSION['ulevel'] == 4)){
+            ?>
+            <div class="relative__container mb-5">  
+                <div class="full__width object__fit">
+                    <img src="include/images/fornt-page-cover.jpg" alt="background picture">
+                    <div class="absolute">
+                    <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
+                    <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
+                    <a href="#iranga" class="button">IRANGA!</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+    
+    ?>
+    
     <table class="center">
-        <tr>
-            <td>
-                <center><img src="include/top2.png" width="1047" height="200"></center>
-            </td>
-        </tr>
         <tr>
             <td>
                 <?php
@@ -87,7 +104,7 @@ function confirmationDelete(anchor)
 <!-------------------------------------------------------------------------------------------------------------------------------- --> 
                     <div style="text-align: center;color:green">
                         <br><br>
-                        <h1 style="color: #343a40">Įranga</h1>
+                        <h1 id="iranga" style="color: #343a40">Įranga</h1>
                         <div class="container" >
                             <div class="row">
                                 <?php
@@ -101,6 +118,13 @@ function confirmationDelete(anchor)
                                                 <div class="card-body">
                                                     <h5 class="card-title" style="color: white;"><?php echo  $row['pavadinimas'] ?></h5>
                                                     <h6 class="card-subtitle mb-2">Pavadinimas: <?php echo  $row['pavadinimas'] ?></h6>
+                                                    <?php 
+                                                    if($row['reguliuojamas_dydis']){
+                                                        ?> 
+                                                            <h6 class="card-subtitle mb-2">Reguliuojamas dydis: <?php echo  $row['reguliuojamas_dydis'] ?></h6>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                     <h6 class="card-subtitle mb-2">Spalva: <?php echo  $row['spalva'] ?></h6>
 
                                                     <?php

@@ -50,12 +50,25 @@ if(isset($_SESSION['ulevel'])){
 </head>
 
 <body>
+    <?php
+    if(isset($_SESSION['ulevel'])){
+        if(($_SESSION['ulevel'] == 9) || ($_SESSION['ulevel'] == 4)){
+            ?>
+            <div class="relative__container mb-5">  
+                <div class="full__width object__fit">
+                    <img src="include/images/fornt-page-cover.jpg" alt="background picture">
+                    <div class="absolute">
+                    <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
+                    <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+    ?>
     <table class="center">
-        <tr>
-            <td>
-                <center><img src="include/top2.png" width="1047" height="200"></center>
-            </td>
-        </tr>
+        
         <tr>
             <td>
                 <?php
