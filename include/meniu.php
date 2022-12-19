@@ -64,7 +64,7 @@ if ($_SESSION['user'] != "Svečias") {
 <?php
 }
 if ($userlevel == $user_roles[ADMIN_LEVEL]) {
-   echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrankį</a>";
+   echo "<a class=\"nav-link\" href=\"ivestiIranga.php\">Pridėti įrangą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiKategorija.php\">Pridėti kategoriją</a>";
    echo "<a class=\"nav-link\" href=\"ivestiAPrieda.php\">Pridėti apsaugos priedą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiPPrieda.php\">Pridėti priežiūros priedą</a>";
