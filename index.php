@@ -44,6 +44,21 @@ if(isset($_SESSION['ulevel'])){
     <title>Gyvenk aktyviai</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="include/styles.css" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+function confirmationDelete(anchor)
+{
+   var conf = confirm('Ar tikrai norite ištrinti įrangą?');
+   if(conf)
+   {
+	   window.location=anchor.attr("href");
+		alert("Įranga sėkmingai ištrinta");
+   }
+	alert("Įranga neištrinta");
+}
+</script>
+	
 </head>
 
 <body>
@@ -92,7 +107,7 @@ if(isset($_SESSION['ulevel'])){
                                                         if($premission){
                                                     ?>  
                                                         <a style="color: white;" href="/irankiuNuoma/redaguoti.php?key=<?php echo $row['id']; ?> "class="card-link">Redaguoti</a>
-                                                        <a style="color: white;" href="/irankiuNuoma/delete.php?key=<?php echo $row['id']; ?> "class="card-link">Ištrinti</a>
+                                                        <a style="color: white;" onclick='javascript:confirmationDelete($(this));return false;' href="/irankiuNuoma/delete.php?key=<?php echo $row['id']; ?> "class="card-link">Ištrinti</a>
                                                     <?php
                                                      }
                                                      if( !$isSvecias){
