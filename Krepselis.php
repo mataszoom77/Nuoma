@@ -13,7 +13,6 @@ $lentele2 = "krepselis";
 $lentele3 = "atsiemimo_punktas";
 
 $tomp=$_SESSION['userid'];
-$value = $_GET['key'];
 
 include("include/functions.php");
 
@@ -73,11 +72,11 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                     while ($row = $result->fetch_assoc()) {
                         $bendrakaina = $bendrakaina + $row['kaina'] * $row['kiekis'];
                         echo "<form action=createOrder.php method=post>
-                        <input type = hidden id = id name = id value =" . $row['id'] . " readonly >
+                        <input type = 'hidden' id = 'id' name = 'id' value =" . $row['id'] . " readonly >
                         <tr>
                         <td>" . $row['pavadinimas'] . "</td>
                         <td>" . $row['kaina']. "</td>
-                        <td><input type='number' id=kiekis name=kiekis value =".$row['kiekis']." min = 1  </td>
+                        <td><input type='number' id='kiekis' name='kiekis' value =".$row['kiekis']." min = 1  </td>
                         <td><input type='submit' name='ok' style ='border-color: #04AA6D' action = isKrepselio.php' value='Isimti is krepselio' class='btn'></td>
                         </tr>"
                         ;}
@@ -107,7 +106,6 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                         
 
                                     <input type="hidden" id="postId" name="zmogus" value="<?php echo $tomp ?>" />
-                                    <input type="hidden" id="postId" name="irankis" value="<?php echo $value ?>" />
                                     <label class="form-label" for="form2Example1">Atsiemimo punktas:</label>
 									<select class="form-select" name="adresas" aria-label="Default select example" required>
 									<!-- <option selected>Paspauskite, kad pasirinktumėt miestą</option> -->
