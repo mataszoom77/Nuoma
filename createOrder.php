@@ -29,7 +29,7 @@ if ($conn->query($sql) === TRUE) {} else {
     echo "Error updating record: " . $conn->error;
   }
   if ($conn->query($sql2) === TRUE) {
-    header('Location: /irankiuNuoma');;
+    header('Location: /irankiuNuoma');
   } else {
     echo "Error updating record2: " . $conn->error;
   }
