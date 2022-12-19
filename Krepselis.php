@@ -34,6 +34,47 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
 </head>
 
 <body>
+<style>
+			.btn {
+			  background-color: #04AA6D;
+			  color: white;
+			  padding: 12px;
+			  margin: 10px 0;
+			  border: none;
+			  width: 100%;
+			  border-radius: 3px;
+			  cursor: pointer;
+			  font-size: 17px;
+			}
+
+			.btn:hover {
+			  background-color: #45a049;
+			}
+			table{
+				border-collapse: colapse;
+				font-family: Geneva;
+			}
+			th{
+				background-color: #54585d;
+				color: #ffffff;
+			}
+			td{
+				padding: 15px;
+				color: #636363;
+				border: 1px solid #dddfe1;
+			}
+			tr{
+				background-color: #f9fafb;
+			}
+			input{
+				padding: 12px 20px;
+				box-sizing: border-box;
+				border: 2px solid #cccc;
+				border-radius: 4px;
+				background-color: #f8f8f8;
+				resize:none;
+			} 
+		</style>
 
 
 
@@ -74,7 +115,7 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                         <tr>
                         <td>" . $row['pavadinimas'] . "</td>
                         <td>" . $row['kaina']. "</td>
-                        <td><input type='number' id=kiekis name=kiekis value =".$row['kiekis']." min = 1  </td>
+                        <td><input type='number' id=kiekis name=kiekis value =".$row['kiekis']." min = 0  </td>
                         <td><input type='submit' name='ok' style ='border-color: #04AA6D' action = isKrepselio.php' value='Isimti is krepselio' class='btn'></td>
                         </tr></form>"
                         ;}
