@@ -1,9 +1,8 @@
 table.meniu {
     text-align: left;
-    background-color:#343a40;
+    background-color:#143914;
     color: rgba(255,255,255,.5);
 }
-
 table.center {
     margin-left:auto; 
     margin-right:auto;
@@ -15,7 +14,6 @@ table.center {
     padding: 1px;
     /* background-color: white;          */ 
 }
-
 table.backlink {  
     margin-left:auto; 
     margin-right:auto;
@@ -41,3 +39,76 @@ input.s1 {
     font-size:13pt;
     text-align:left;
 }
+
+.main-page-cover{
+    max-height: 200px;
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+}
+.relative__container {
+    width: 100%;
+    position: relative;
+    color: white;
+  }
+  .full__width img {
+    width: 100%;
+    height: 360px;
+  }
+  .object__fit img {
+    object-fit: cover;
+    display: block;
+  }
+  .absolute {
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 14px;
+  }
+  p {
+    margin-bottom: 30px;
+    line-height: 24px;
+  }
+  .button {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.25s;
+  }
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: rgb(210, 255, 215);
+  }
+  .button:active {
+    background-color: #5b5d54;
+    box-shadow: rgba(17, 12, 46, 0.2) 0px 48px 60px 0px;
+  }
+  @media (max-width: 960px) {
+    .absolute {
+      width: 75%;
+    }
+  }
+  @media (max-width: 600px) {
+    .full__width img {
+      width: 100%;
+    }
+    .absolute {
+      padding: 20px;
+      width: 100%;
+    }
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  

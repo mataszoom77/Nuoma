@@ -29,9 +29,9 @@ session_start();
   $sql = "UPDATE ". TBL_USERS." SET  email='$mail', vardas='$vardas', pavarde='$pavarde', telefonas='$tel', adresas='$adresas', asmens_kodas='$kodas'  WHERE  username='$user'";
   if (!mysqli_query($db, $sql)) {
     echo " DB klaida keiciant slaptazodi ir epasto adresa: " . $sql . "<br>" . mysqli_error($db);
-    mysqli_close($db);
-   
     
-    exit;}
+    mysqli_close($db);
+    exit;
+  }
 
   header("Location:useredit.php?status=success");exit;

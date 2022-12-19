@@ -14,54 +14,28 @@ $role = ""; {
    }
 }
 
-
-// echo "[<a href=\"index.php\">Pagrindinis</a>] &nbsp;&nbsp;";
-
-// if ($_SESSION['user'] != "guest") {
-//    echo "[<a href=\"priminimai.php\">Priminimai</a>] &nbsp;&nbsp;";
-//    echo "[<a href=\"useredit.php\">Redaguoti paskyrą</a>] &nbsp;&nbsp;";
-//    echo "[<a href=\"prisijungimai.php\">Prisijungimai</a>] &nbsp;&nbsp;";
-// }
-// //Trečia operacija tik rodoma pasirinktu kategoriju vartotojams, pvz.:
-// // if (($userlevel == $user_roles["Dalyvis"]) || ($userlevel == $user_roles[ADMIN_LEVEL] )) {
-// //     echo "[<a href=\"skaitau.php\">Žinutės</a>] &nbsp;&nbsp;";
-// // 	}   
-// //Administratoriaus sąsaja rodoma tik administratoriui
-// if ($userlevel == $user_roles[ADMIN_LEVEL]) {
-//    echo "[<a href=\"admin.php\">Administratoriaus sąsaja</a>] &nbsp;&nbsp;";
-//    echo "[<a href=\"ivestiIranki.php\">ivestiIranki</a>] &nbsp;&nbsp;";
-// }
-// echo "[<a href=\"logout.php\">Atsijungti</a>]";
-
-
 echo "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">";
-
 echo "<div class=\"collapse navbar-collapse\" id=\"navbarText\">";
 echo  "<ul class=\"navbar-nav mr-auto\">";
 echo "<a class=\"nav-link\" href=\"index.php\">Pagrindinis</a>";
-echo "<a class=\"nav-link\" href=\"reviews.php\">Atsiliepimai</a>";
 if ($_SESSION['user'] != "Svečias") {
 ?>
    <html>
-
             <li class="nav-item">
                <a class="nav-link"href="orderHistory.php">Užsakymų istorija</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="profile.php">Mano paskyra</a>
+               <a class="nav-link"H href="profile.php">Mano paskyra</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="krepselis.php">Krepselis</a>
             </li>
-            <!-- <li class="nav-item">
-               <a class="nav-link"  href="useredit.php">Redaguoti paskyrą</a>
-            </li> -->
             
    </html>
 <?php
 }
 if ($userlevel == $user_roles[ADMIN_LEVEL]) {
-   echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrankį</a>";
+   echo "<a class=\"nav-link\" href=\"ivestiIranki.php\">Pridėti įrangą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiKategorija.php\">Pridėti kategoriją</a>";
    echo "<a class=\"nav-link\" href=\"ivestiAPrieda.php\">Pridėti apsaugos priedą</a>";
    echo "<a class=\"nav-link\" href=\"ivestiPPrieda.php\">Pridėti priežiūros priedą</a>";

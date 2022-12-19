@@ -45,16 +45,32 @@ if ($_SESSION['user'] == "Svečias") {
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=9; text/html; charset=utf-8">
-  <title>Demo projektas</title>
+  <title>Gyvenk aktyviai</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="include/styles.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<?php
+    if(isset($_SESSION['ulevel'])){
+        if(($_SESSION['ulevel'] == 9) || ($_SESSION['ulevel'] == 4)){
+            ?>
+            <div class="relative__container mb-5">  
+                <div class="full__width object__fit">
+                    <img src="include/images/fornt-page-cover.jpg" alt="background picture">
+                    <div class="absolute">
+                    <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
+                    <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    }
+    ?>
   <table class="center">
     <tr>
       <td>
-        <center><img src="include/top2.png" width="1047" height="200"></center>
       </td>
     </tr>
     <tr>
@@ -75,14 +91,29 @@ if ($_SESSION['user'] == "Svečias") {
             <div class="col-lg-12">
               <div class="card mb-4">
                 <div class="card-body">
+                  <?php
+                  if($_SESSION['ulevel'] && $_SESSION['ulevel'] == 9){
+                      ?>
+                      <div class="row">
+                      <div class="col-sm-3">
+                        <p class="mb-0">Pažymėjimo nr.:</p>
+                      </div>
+                      <div class="col-sm-9">
+                        <p class=" mb-0"><?php echo  $row['pazymejimo_numeris'] ?></p>
+                      </div>
+                    </div>
+                  <hr>
+                      <?php
+                  }
+                  ?>
                   <div class="row">
                     <div class="col-sm-3">
                       <p class="mb-0">Pilnas vardas</p>
                     </div>
                     <div class="col-sm-9">
                       <p class=" mb-0"><?php echo  $row['vardas'];
-                                        echo " ";
-                                        echo $row['pavarde']; ?></p>
+                          echo " ";
+                          echo $row['pavarde']; ?></p>
                     </div>
                   </div>
                   <hr>
