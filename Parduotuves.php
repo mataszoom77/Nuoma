@@ -89,14 +89,73 @@ if (!empty($_SESSION['user'])) //Jei vartotojas prisijungęs, valom logino kinta
             <td><?php echo $items["adresas"]; ?></td>
             <?php
             if($premission){
-                echo "<td><button type='button' class='btn btn-secondary'>Delete</button></td>";
+                echo "<td>";
+                ?>
+                <a style="color: black;" onclick='javascript:confirmationDelete($(this));return false;' href="/irankiuNuoma/DeleteShop.php?key=<?php echo $items['id']; ?> "class="card-link">Ištrinti</a>
+                <?php echo "</td>";
             }
             echo "</tr>";
         }
-    }
-    ?>
-  </tbody>
+        }
+        ?>
+            <?php
+            if($premission){
+                echo "<tr>";
+                ?>
+                <td><a class=nav-link data-toggle=modal data-target=#exampleModal>Pridėti naują</a></td?
+                <?php echo "</td>";
+            }
+            echo "</tr>";
+            ?>
+    
+</tbody>
+
 </table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Parduotuvės forma</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form class="form-signin text-center for-signin" action="PridetiMiesta.php" method="post">
+      <div class="checkbox mb-3">
+
+      <div class="form-group row">
+        <label for="Pavadinimas" class="col-sm-5 col-form-label">Pavadinimas: </label>
+      <div class="col-sm-6">
+      <input type="text" name="pavadinimas" class="form-control" required>
+      </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Miestas" class="col-sm-5 col-form-label">Miestas: </label>
+      <div class="col-sm-6">
+      <input type="text" name="miestas" class="form-control" required>
+      </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Adresas" class="col-sm-5 col-form-label">Adresas: </label>
+      <div class="col-sm-6">
+      <input type="text" name="adresas" class="form-control" required>
+      </div>
+      </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Uždaryti</button>
+        <button class="btn btn-primary" type="submit" name="confirmBuy">Pirkti</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+            </div>
 </div>
 <body>
 
