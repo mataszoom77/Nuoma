@@ -13,7 +13,6 @@ if(($_SESSION['ulevel'] != 9)){
 	exit;
 }
 
-
 $server = "localhost";
 $user = "root";
 $password = "";
@@ -85,7 +84,7 @@ function confirmationDelete(anchor)
 <form method='post' action='irasytiIranga.php'>
   <div class="form-row" >
     <div class="form-group col-md-12">
-      <label for="inputEmail4">Įrankio pavadinimas</label>
+      <label for="inputEmail4">Įrangos pavadinimas</label>
       <input type="text" name='pavadinimas' class="form-control" id="inputEmail4" required>
     </div>
     </div>

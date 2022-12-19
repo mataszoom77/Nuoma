@@ -74,7 +74,7 @@ function confirmationDelete(anchor)
                     <div class="absolute">
                     <h1>Nusprendei, kad užteks sedėti ir nieko neveikti?</h1>
                     <p>Išsirink norimą laisvalaikio įrangą ir nuobodžiauti tikrai neteks!</p>
-                    <a href="#iranga" class="button">IRANGA!</a>
+                    <!-- <a href="#iranga" class="button">IRANGA!</a> -->
                     </div>
                 </div>
             </div>
@@ -98,9 +98,6 @@ function confirmationDelete(anchor)
 
                     include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
                 ?>
-
-
-
 <!-------------------------------------------------------------------------------------------------------------------------------- --> 
                     <div style="text-align: center;color:green">
                         <br><br>
