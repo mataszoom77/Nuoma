@@ -18,9 +18,9 @@ $server = "localhost";
 $user = "root";
 $password = "";
 $dbname = "irankiunuoma";
-$lentele = "gamintojas";
-$lentele2 = "modelis";
-$lentele3 = "taisymo_punktas";
+$lentele = "kategorija";
+$lentele2 = "apsaugospriedas";
+$lentele3 = "prieziurospriedas";
 
 $conn = new mysqli($server, $user, $password, $dbname);
 if ($conn->connect_error) die("Negaliu prisijungti: " . $conn->connect_error);
@@ -71,40 +71,128 @@ if (!$result3 = $conn->query($sql3)) die("Negaliu nuskaityti: " . $conn->error);
                     include("include/meniu.php"); //įterpiamas meniu pagal vartotojo rolę
                 ?>
     <div class="container" style="padding: 5%;">
-    <h1 style="color: #343a40">Įvesti įrankį</h1>
+    <h1 style="color: #343a40">Pridėti įrangą</h1>
 <form method='post' action='irasytiIranki.php'>
   <div class="form-row" >
     <div class="form-group col-md-12">
       <label for="inputEmail4">Įrankio pavadinimas</label>
-      <input type="text" name='pavadinimas' class="form-control" id="inputEmail4" placeholder="irankis" required>
+      <input type="text" name='pavadinimas' class="form-control" id="inputEmail4" required>
     </div>
     </div>
     <div class="form-row">
     <div class="form-group col-md-12">
-      <label for="inputPassword4">Būklė</label>
-      <input type="text" name='bukle' class="form-control" id="inputPassword4" placeholder="gera" required>
+      <label for="inputPassword4">Kaina</label>
+      <input type="text" name='kaina' class="form-control" id="inputPassword4" required>
     </div>
   
   <div class="form-group col-md-12">
-    <label for="inputAddress">Kaina</label>
-    <input type="text" name='kaina' class="form-control" id="inputAddress" placeholder="50" required>
+    <label for="inputAddress">Kiekis</label>
+    <input type="text" name='kiekis' class="form-control" id="inputAddress" required>
   </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-12">
-      <label for="inputPassword4">tipas</label>
-      <input type="text" name='tipas' class="form-control" id="inputPassword4" placeholder="bučiai" required>
+      <label for="inputPassword4">Prieinamumas</label>
+      <input type="text" name='prieinamumas' class="form-control" id="inputPassword4" required>
     </div>
   
   <div class="form-group col-md-12">
-    <label for="inputAddress">klase</label>
-    <input type="text" name='klase' class="form-control" id="inputAddress" placeholder="A+" required>
+    <label for="inputAddress">Spalva</label>
+    <input type="text" name='spalva' class="form-control" id="inputAddress">
   </div>
   </div>
+  
+  
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Svoris</label>
+      <input type="text" name='svoris' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Dydis</label>
+    <input type="text" name='dydis' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Ilgis</label>
+      <input type="text" name='ilgis' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Nusidevejimas</label>
+    <input type="text" name='nusidevejimas' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Prekės ženklas</label>
+      <input type="text" name='prekes_zenklas' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Pagaminimo šalis</label>
+    <input type="text" name='pagaminimo_salis' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Reguliuojamas dydis</label>
+      <input type="text" name='reguliuojamas_dydis' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Maksimalus greitis</label>
+    <input type="text" name='maksimalus_greitis' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Maksimalus nuvažiuojamas atstumas</label>
+      <input type="text" name='maksimalus_nuvaziuojamas_atstumas' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Akumuliatoriaus talpa</label>
+    <input type="text" name='akumuliatoriaus_talpa' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Įkrovimo laikas</label>
+      <input type="text" name='ikrovimo_laikas' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Stiprumas pagrindine ašimi</label>
+    <input type="text" name='stiprumas_pagrindine_asimi' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="inputPassword4">Stiprumas pagalbine ašimi</label>
+      <input type="text" name='stiprumas_pagalbine_asimi' class="form-control" id="inputPassword4">
+    </div>
+  
+  <div class="form-group col-md-12">
+    <label for="inputAddress">Stiprumas atidarytais vartais</label>
+    <input type="text" name='stiprumas_atidarytais_vartais' class="form-control" id="inputAddress">
+  </div>
+  </div>
+  
+  
 
-    <label class="form-label" for="form2Example1">gamintojas:</label>          
-    <select class="form-select" name="gamintojas" aria-label="Default select example">
-    <option selected>Paspauskite, kad pasirinktumėt gamintoją</option>
+    <label class="form-label" for="form2Example1">Kategorija:</label>          
+    <select class="form-select" name="kategorija" aria-label="Default select example">
+    <option selected>Paspauskite, kad pasirinktumėt kategoriją</option>
     <?php
     while ($row = $result->fetch_assoc()) {
     ?>
@@ -114,9 +202,9 @@ if (!$result3 = $conn->query($sql3)) die("Negaliu nuskaityti: " . $conn->error);
     ?>
     </select>              
 
-    <label class="form-label" for="form2Example1">Modelis:</label>
-    <select class="form-select" name="modelis" aria-label="Default select example">
-    <option selected>Paspauskite, kad pasirinktumėt modelį</option>
+    <label class="form-label" for="form2Example1">Apsaugos priedas:</label>
+    <select class="form-select" name="apsaugospriedas" aria-label="Default select example">
+    <option selected>Paspauskite, kad pasirinktumėt apsaugos priedą</option>
     <?php
     while ($row2 = $result2->fetch_assoc()) {
     ?>
@@ -127,9 +215,9 @@ if (!$result3 = $conn->query($sql3)) die("Negaliu nuskaityti: " . $conn->error);
     </select>
 
 
-    <label class="form-label" for="form2Example1">Taisymo punktas:</label>
-    <select class="form-select" name="punktas" aria-label="Default select example">
-    <option selected>Paspauskite, kad pasirinktumėt taisymo punktą</option>
+    <label class="form-label" for="form2Example1">Prieziuros priedas:</label>
+    <select class="form-select" name="prieziurospriedas" aria-label="Default select example">
+    <option selected>Paspauskite, kad pasirinktumėt priežiūros priedą</option>
     <?php
     while ($row3 = $result3->fetch_assoc()) {
     ?>

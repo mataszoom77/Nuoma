@@ -8,7 +8,7 @@ $server = "localhost";
 $user = "root";
 $password = "";
 $dbname = "irankiunuoma";
-$lentele = "irankis";
+$lentele = "iranga";
 
 $value = $_GET['key'];
 
