@@ -20,6 +20,7 @@ $dbname = "irankiunuoma";
 $lentele = "kategorija";
 $lentele2 = "apsaugospriedas";
 $lentele3 = "prieziurospriedas";
+$lentele4 = "atsiemimo_punktas";
 
 $conn = new mysqli($server, $user, $password, $dbname);
 if ($conn->connect_error) die("Negaliu prisijungti: " . $conn->connect_error);
@@ -37,6 +38,10 @@ if (!$result2 = $conn->query($sql2)) die("Negaliu nuskaityti: " . $conn->error);
 $sql3 =  "SELECT * FROM $lentele3";
 
 if (!$result3 = $conn->query($sql3)) die("Negaliu nuskaityti: " . $conn->error);
+
+$sql4 =  "SELECT * FROM $lentele4";
+
+if (!$result4 = $conn->query($sql4)) die("Negaliu nuskaityti: " . $conn->error);
 
 ?>
 
@@ -231,6 +236,19 @@ function confirmationDelete(anchor)
     }
     ?>
     </select>
+	
+	<label class="form-label" for="form2Example1">Parduotuvė:</label>
+    <select class="form-select" name="atsiemimo_punktas" aria-label="Default select example">
+    <option selected>Paspauskite, kad pasirinktumėt atsiėmimo punktą</option>
+    <?php
+    while ($row4 = $result4->fetch_assoc()) {
+    ?>
+    <option value=<?php echo  $row4['id'] ?>><?php echo  $row4['pavadinimas'] ?></option>
+    <?php
+    }
+    ?>
+    </select>
+	
   <button type="submit" name='ok' onclick='javascript:confirmationDelete($(this));' value='patvirtinti' class="btn btn-primary">Patvirtinti</button>
 </form>
     </div>
