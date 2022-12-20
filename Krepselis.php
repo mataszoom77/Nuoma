@@ -82,6 +82,8 @@ if (!$result = $conn->query($sql)) die("Negaliu nuskaityti: " . $conn->error);
                         $bendrakaina = $bendrakaina + $row['kaina'] * $row['kiekis'];
                         echo "<form action=createOrder.php method=post>
                         <input type = 'hidden' id = 'id' name = 'id' value =" . $row['id'] . " readonly >
+                        <input type = 'hidden' id = 'kaina' name = 'kaina' value =" . $bendrakaina . " readonly >
+                        <input type = 'hidden' id = 'irankis' name = 'irankis' value =" . $row['id'] . " readonly >
                         <tr>
                         <td>" . $row['pavadinimas'] . "</td>
                         <td>" . $row['kaina']. "</td>
