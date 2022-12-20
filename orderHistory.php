@@ -85,7 +85,7 @@ if(isset($_SESSION['ulevel'])){
 
                     <div style="text-align: center;color:green">
                         <br><br>
-                        <h1 style="color: #343a40">Užsakymų istorija</h1>
+                        <h1 style="color: #343a40">Rezervacijų istorija</h1>
                            
         
                         
@@ -98,7 +98,7 @@ if(isset($_SESSION['ulevel'])){
             <div class="col-md-12">
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h4>Filtruoti užsakymus pagal kainą </h4>
+                        <h4>Filtruoti rezervacijas pagal kainą </h4>
                     </div>
                     <div class="card-body">
 
@@ -140,7 +140,7 @@ if(isset($_SESSION['ulevel'])){
                             $endprice = $_GET['end_price'];
                             $query = "SELECT * 
 	                        FROM uzsakymas as p 
-		                    LEFT JOIN irankis as g on g.id = p.irankis_fk 
+		                    LEFT JOIN iranga as g on g.id = p.irankis_fk 
 		                    LEFT JOIN users as u on u.userid = p.zmogus_fk 
                             WHERE u.userid = '".$_SESSION['userid']."'
                             AND 
@@ -150,7 +150,7 @@ if(isset($_SESSION['ulevel'])){
                         {
                             $query = "SELECT * 
 	                        FROM uzsakymas as p 
-		                    LEFT JOIN irankis as g on g.id = p.irankis_fk
+		                    LEFT JOIN iranga as g on g.id = p.irankis_fk
 		                    LEFT JOIN users as u on u.userid = p.zmogus_fk WHERE u.userid = '".$_SESSION['userid']."'";
                         }
                         
@@ -177,9 +177,9 @@ if(isset($_SESSION['ulevel'])){
                                  <div class="border p-2">
                                      <h5><?php echo $items['pavadinimas']; ?></h5>
                                     
-                                     <h6>Buklė: <?php echo $items['bukle']; ?></h6>
+                                     <h6>Nusidėvėjimas: <?php echo $items['nusidevejimas']; ?></h6>
                                      <h6>Kaina: <?php echo $items['kaina']; ?>€</h6>
-                                     <h6>Įrankio sukūrimo data: <?php echo $items['sukurimo_data'];?></h6>
+                                     <h6>Įrankio sukūrimo data: <?php echo $items['pradzia'];?></h6>
                                      <h6>Užsakymo pabaiga: <?php echo $items['pabaiga'];?></h6>
 
                                  
@@ -232,7 +232,7 @@ if(isset($_SESSION['ulevel'])){
             <div class="col-md-12 mt-3">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Užsakymai</h5>
+                        <h5>Rezervacijos</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
