@@ -43,8 +43,10 @@ if($_POST !=null){
        $kategorija =  htmlspecialchars($_POST['kategorija']);
        $apsaugospriedas =  htmlspecialchars($_POST['apsaugospriedas']);
        $prieziurospriedas =  htmlspecialchars($_POST['prieziurospriedas']);
-      $sql = "INSERT INTO $lentele (pavadinimas, kaina, kiekis, prieinamumas, spalva, svoris, dydis, ilgis, nusidevejimas, prekes_zenklas, pagaminimo_salis, reguliuojamas_dydis, maksimalus_greitis, maksimalus_nuvaziuojamas_atstumas, akumuliatoriaus_talpa, ikrovimo_laikas, stiprumas_pagrindine_asimi, stiprumas_pagalbine_asimi, stiprumas_atidarytais_vartais, fk_kategorija, fk_apsaugospriedas, fk_prieziurospriedas) 
-             VALUES ( '$pavadinimas', '$kaina', '$kiekis', '$prieinamumas', '$spalva', '$svoris', '$dydis', '$ilgis', '$nusidevejimas', '$prekes_zenklas', '$pagaminimo_salis', '$reguliuojamas_dydis', '$maksimalus_greitis', '$maksimalus_nuvaziuojamas_atstumas', '$akumuliatoriaus_talpa', '$ikrovimo_laikas', '$stiprumas_pagrindine_asimi', '$stiprumas_pagalbine_asimi', '$stiprumas_atidarytais_vartais', '$kategorija', '$apsaugospriedas', '$prieziurospriedas' )";
+	   $atsiemimo_punktas =  htmlspecialchars($_POST['atsiemimo_punktas']);
+	   
+      $sql = "INSERT INTO $lentele (pavadinimas, kaina, kiekis, prieinamumas, spalva, svoris, dydis, ilgis, nusidevejimas, prekes_zenklas, pagaminimo_salis, reguliuojamas_dydis, maksimalus_greitis, maksimalus_nuvaziuojamas_atstumas, akumuliatoriaus_talpa, ikrovimo_laikas, stiprumas_pagrindine_asimi, stiprumas_pagalbine_asimi, stiprumas_atidarytais_vartais, fk_kategorija, fk_apsaugospriedas, fk_prieziurospriedas, fk_punktas) 
+             VALUES ( '$pavadinimas', '$kaina', '$kiekis', '$prieinamumas', '$spalva', '$svoris', '$dydis', '$ilgis', '$nusidevejimas', '$prekes_zenklas', '$pagaminimo_salis', '$reguliuojamas_dydis', '$maksimalus_greitis', '$maksimalus_nuvaziuojamas_atstumas', '$akumuliatoriaus_talpa', '$ikrovimo_laikas', '$stiprumas_pagrindine_asimi', '$stiprumas_pagalbine_asimi', '$stiprumas_atidarytais_vartais', '$kategorija', '$apsaugospriedas', '$prieziurospriedas', '$atsiemimo_punktas')";
       if (!$result = $conn->query($sql)) die("Negaliu įrašyti: " . $conn->error);
 		{header("Location:/irankiuNuoma");exit;} 
       //echo "Įrašyta";
